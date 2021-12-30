@@ -1,11 +1,9 @@
-import React from 'react'
-
+import React, { useEffect, useRef, useState } from 'react'
 import propTypes from 'prop-types'
 import classnames from 'classnames'
 import { useInView } from 'react-intersection-observer'
-import InfoIcon from '../InfoIcon/InfoIcon'
 
-const { useEffect, useRef, useState } = React
+import InfoIcon from '../InfoIcon/InfoIcon'
 
 const VideoElement = function ({
   videoUrl, isLoad, playOnView, muted,
@@ -22,7 +20,6 @@ const VideoElement = function ({
   }, [isLoad, playOnView])
 
   useEffect(() => {
-    // const isFullyVisible = entry && entry.intersectionRatio > 0.6
     if (!playOnView || !isPlay) return
 
     if (inView) videoElement.current.play()

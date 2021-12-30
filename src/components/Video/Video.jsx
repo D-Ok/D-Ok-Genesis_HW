@@ -6,7 +6,10 @@ import { useInView } from 'react-intersection-observer'
 import VideoElement from './VideoElement'
 
 const Video = function ({
-  muted, playOnView, videoUrl, className,
+  muted,
+  playOnView,
+  videoUrl,
+  className,
 }) {
   const [isLoad, setIsLoad] = useState(false)
 

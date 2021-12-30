@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { MemoryRouter, Routes, Route } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import MenuBar from './components/MenuBar/MenuBar'
 
 import Trending from './pages/Trending/Trending'
@@ -11,7 +11,6 @@ const App = function () {
     <MemoryRouter>
       <div className="App">
         <MenuBar />
-
         <Routes>
           <Route path="/" element={<Trending />} />
           <Route path="/user">

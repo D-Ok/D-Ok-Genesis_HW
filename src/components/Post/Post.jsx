@@ -5,7 +5,9 @@ import Video from '../Video/Video'
 import Hashtag from '../Hashtag/Hashtag'
 import InfoIcon from '../InfoIcon/InfoIcon'
 import AvatarLink from '../AvatarLink/AvatarLink'
-import { calculateHeight } from './utils'
+import { UTILS } from './utils'
+
+const { calculatePostWidth, calculateHeight } = UTILS
 
 const Post = function (properties) {
   const {
@@ -26,7 +28,7 @@ const Post = function (properties) {
 
   const postStyles = {
     height: postHeight,
-    width: (postHeight * 9) / 8 + 20,
+    width: calculatePostWidth(postHeight),
   }
 
   if (!videoMeta) return <></>

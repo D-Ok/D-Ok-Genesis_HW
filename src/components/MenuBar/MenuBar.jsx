@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 import {
-  Avatar, AppBar, Toolbar, Typography, IconButton,
+  AppBar, Avatar, IconButton, Toolbar, Typography,
 } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 
@@ -17,16 +17,20 @@ const MenuBar = function () {
   const [userAvatar, setUserAvatar] = useState('')
 
   const defaultUser = GLOBAL_CONSTANTS.USER_ID
+
   useEffect(() => {
     axios
       .request(options(userInfoUrl + defaultUser))
-      .then((response) => {
-        setUserAvatar(response.data.user.avatarThumb)
+      .then(({ data }) => {
+        setUserAvatar(data.user.avatarThumb)
       })
       .catch((error) => {
         console.error(error)
       })
   }, [])
+
+  const navigateToMainPage = () => navigate('/', { replace: true })
+  const navigateToUserPage = () => navigate(`/user/${defaultUser}`, { replace: true })
 
   return (
     <AppBar position="fixed">
@@ -34,7 +38,7 @@ const MenuBar = function () {
         <Typography
           variant="h6"
           component="div"
-          onClick={() => navigate('/', { replace: true })}
+          onClick={navigateToMainPage}
         >
           TikTuk
         </Typography>
@@ -44,7 +48,7 @@ const MenuBar = function () {
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
-            onClick={() => navigate(`/user/${defaultUser}`, { replace: true })}
+            onClick={navigateToUserPage}
             color="inherit"
           >
             {userAvatar ? (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Link } from '@mui/material'
+import { Link, Typography } from '@mui/material'
 import propTypes from 'prop-types'
 import AvatarLink from '../AvatarLink/AvatarLink'
 import InfoIcon from '../InfoIcon/InfoIcon'
@@ -9,7 +9,11 @@ const UserProfile = function ({ stats, user }) {
     if (!user) return <></>
 
     const {
-      bioLink, uniqueId, nickname, avatarLarger, signature,
+      bioLink,
+      uniqueId,
+      nickname,
+      avatarLarger,
+      signature,
     } = user
 
     return (
@@ -32,8 +36,12 @@ const UserProfile = function ({ stats, user }) {
     if (!stats) return <></>
 
     const {
-      followingCount, followerCount, videoCount, heartCount,
+      followingCount,
+      followerCount,
+      videoCount,
+      heartCount,
     } = stats
+
     return (
       <div className="profile-icon-group">
         <InfoIcon disabled number={heartCount} text="Hearts" />

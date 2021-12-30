@@ -5,7 +5,10 @@ import { Avatar, Link } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 const AvatarLink = function ({
-  name, nickName, avatar, className,
+  name,
+  nickName,
+  avatar,
+  className,
 }) {
   const navigate = useNavigate()
 
@@ -14,10 +17,12 @@ const AvatarLink = function ({
     'avatar-link-container',
   )
 
+  const avatarClickHandler = () => navigate(`/user/${name}`, { replace: true })
+
   return (
     <div
       className={avatarLinkClasses}
-      onClick={() => navigate(`/user/${name}`, { replace: true })}
+      onClick={avatarClickHandler}
     >
       <Avatar alt={nickName} src={avatar} className="avatar-icon" />
       <div className="avatar-text">
@@ -32,9 +37,9 @@ const AvatarLink = function ({
 
 AvatarLink.defaultProps = {
   className: '',
-  name: 'dave.xp',
-  nickName: 'Dave XP',
-  avatar: 'https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/8dedfc004fb5d07eb5bda02770d198cd~c5_100x100.jpeg?x-expires=1637082000&x-signature=8iQRSKQWKaCtmkpDCoW487iD7hc%3D',
+  name: '',
+  nickName: '',
+  avatar: '',
 }
 
 AvatarLink.propTypes = {

@@ -1,6 +1,6 @@
 # TikTuk
 
-To start the game follow the [link](https://d-ok.github.io/TikTuk/).
+To start follow the [link](https://d-ok.github.io/TikTuk/).
 
 ## Load source code on your computer
 

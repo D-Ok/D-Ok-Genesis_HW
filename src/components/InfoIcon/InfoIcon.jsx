@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import classnames from 'classnames'
-import { IconButton, Icon } from '@mui/material'
+import { Icon, IconButton } from '@mui/material'
 
 import { numberToText } from './utils'
 
@@ -31,8 +31,7 @@ const InfoIcon = function ({
       </Icon>
       {text && (
       <span className="info-icon-text">
-        {text}
-        :
+        {`${text}:`}
       </span>
       )}
       {textNumber && <span className="info-icon-text">{textNumber}</span>}
