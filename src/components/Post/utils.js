@@ -2,13 +2,14 @@ import { POST } from './constants'
 
 const { STYLES } = POST
 
+const {
+  MENU_BAR_HEIGHT, MAX_HEIGHT_ON_PAGE, WIDTH, HEIGHT, SPACE_PX,
+} = STYLES
+
 export const UTILS = {
   calculateHeight: () => {
-    const pageHeight = window.innerHeight - STYLES.MENU_BAR_HEIGHT
-    return pageHeight * STYLES.MAX_HEIGHT_ON_PAGE
+    const pageHeight = window.innerHeight - MENU_BAR_HEIGHT
+    return pageHeight * MAX_HEIGHT_ON_PAGE
   },
-  calculatePostWidth: (postHeight) => {
-    return 2 * ((postHeight * STYLES.WIDTH) / STYLES.HEIGHT) + STYLES.SPACE_PX
-  },
+  calculatePostWidth: (postHeight) => 2 * ((postHeight * WIDTH) / HEIGHT) + SPACE_PX,
 }
-

@@ -21,13 +21,13 @@ const VideoGrid = function ({ videos }) {
 
   return (
     <div className="video-grid">
-      {videos && videos.map((element) => videoContainer(element))}
+      {videos.map((element) => videoContainer(element))}
     </div>
   )
 }
 
 VideoGrid.defaultProps = {
-  videos: undefined,
+  videos: [],
 }
 
 VideoGrid.propTypes = {

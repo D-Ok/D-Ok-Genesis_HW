@@ -9,7 +9,6 @@ const Hashtag = function ({ name }) {
         #
         {name}
       </Link>
-      {' '}
     </span>
   )
 }
