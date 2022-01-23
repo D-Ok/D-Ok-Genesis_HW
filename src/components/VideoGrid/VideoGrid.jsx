@@ -6,11 +6,11 @@ import Video from '../Video/Video'
 import numberToText from '../../helpers/numberToText'
 
 const VideoGrid = function ({ videos }) {
-  const videoContainer = ({ videoUrl, playCount }) => (
-    <div className="user-video-container" key={videoUrl}>
+  const videoContainer = ({ video, stats: { playCount } }) => (
+    <div className="user-video-container" key={video.playAddr}>
       <Video
         controls={false}
-        videoUrl={videoUrl}
+        videoUrl={video.playAddr}
         className="user-video-display"
       />
       <div className="user-video-info">
@@ -19,7 +19,7 @@ const VideoGrid = function ({ videos }) {
       </div>
     </div>
   )
-
+  console.log(videos)
   return (
     <div className="video-grid">
       {videos.map((element) => videoContainer(element))}

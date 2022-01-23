@@ -5,14 +5,14 @@ import { Avatar, Link } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 const AvatarLink = function ({
-  name,
-  nickName,
+  uniqueId,
+  nickname,
   avatar,
   className,
 }) {
   const navigate = useNavigate()
 
-  const avatarClickHandler = () => navigate(`/user/${name}`, { replace: true })
+  const avatarClickHandler = () => navigate(`/user/${uniqueId}`, { replace: true })
 
   const avatarLinkClasses = classnames(
     { [`${className}`]: true },
@@ -24,12 +24,12 @@ const AvatarLink = function ({
       className={avatarLinkClasses}
       onClick={avatarClickHandler}
     >
-      <Avatar alt={nickName} src={avatar} className="avatar-icon" />
+      <Avatar alt={nickname} src={avatar} className="avatar-icon" />
       <div className="avatar-text">
         <Link href="#" underline="hover">
-          {name}
+          {uniqueId}
         </Link>
-        <span className="avatar-nickname">{nickName}</span>
+        <span className="avatar-nickname">{nickname}</span>
       </div>
     </div>
   )
@@ -37,14 +37,14 @@ const AvatarLink = function ({
 
 AvatarLink.defaultProps = {
   className: '',
-  name: '',
-  nickName: '',
+  uniqueId: '',
+  nickname: '',
   avatar: '',
 }
 
 AvatarLink.propTypes = {
-  name: propTypes.string,
-  nickName: propTypes.string,
+  uniqueId: propTypes.string,
+  nickname: propTypes.string,
   avatar: propTypes.string,
   className: propTypes.string,
 }

@@ -1,3 +1,11 @@
+const callbackAndReturn = (value, callback) => {
+  if (callback) {
+    callback(value)
+  } else {
+    return value
+  }
+}
+
 export default async ({
   request, parameters, callback, defaultReturn,
 }) => {
@@ -5,16 +13,10 @@ export default async ({
     const result = await request(parameters)
     const { data } = result
 
-    console.log(request, data)
-    if (typeof data === 'string') return defaultReturn
-
-    if (callback) {
-      callback(data)
-    } else {
-      return data
-    }
+    const resultValue = typeof data === 'string' ? defaultReturn : data
+    return callbackAndReturn(resultValue, callback)
   } catch (error) {
     console.error(error)
-    return defaultReturn
+    return callbackAndReturn(defaultReturn, callback)
   }
 }

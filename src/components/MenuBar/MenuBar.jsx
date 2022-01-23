@@ -11,7 +11,7 @@ const MenuBar = function ({ user }) {
   const navigate = useNavigate()
 
   const navigateToMainPage = () => navigate('/', { replace: true })
-  const navigateToUserPage = () => user.userName && navigate(`/user/${user.userName}`, { replace: true })
+  const navigateToUserPage = () => user && user.userName && navigate(`/user/${user.userName}`, { replace: true })
 
   return (
     <AppBar position="fixed">

@@ -1,9 +1,10 @@
 import { GLOBAL_CONSTANTS } from '../assets/constants'
 
-const { STYLES: { MENU_BAR_HEIGHT, MAX_HEIGHT_ON_PAGE, POST } } = GLOBAL_CONSTANTS
+const { STYLES } = GLOBAL_CONSTANTS
 
 export default () => {
-  const pageHeight = window.innerHeight - MENU_BAR_HEIGHT
+  const { MENU_BAR_HEIGHT_PX, MAX_HEIGHT_ON_PAGE, POST } = STYLES
+  const pageHeight = window.innerHeight - MENU_BAR_HEIGHT_PX
 
   const height = pageHeight * MAX_HEIGHT_ON_PAGE
   const width = 2 * ((height * POST.WIDTH) / POST.HEIGHT) + POST.SPACE_PX

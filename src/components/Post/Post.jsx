@@ -9,24 +9,23 @@ import getPostParameters from '../../helpers/getPostParameters'
 
 const Post = function (properties) {
   const {
-    videoUrl,
-    videoMeta,
+    video,
     text,
-    authorMeta,
-    diggCount,
-    commentCount,
-    hashtags,
+    author,
+    stats,
+    challenges,
   } = properties
 
-  if (!videoMeta) return <></>
+  if (!video) return <></>
 
+  const { diggCount, commentCount } = stats
   const postStyles = getPostParameters()
 
   return (
     <div className="post-container" style={postStyles}>
-      <Video {...videoMeta} videoUrl={videoUrl} playOnView />
+      <Video {...video} videoUrl={video.playAddr} playOnView />
       <div className="post-info-container">
-        {authorMeta && <AvatarLink {...authorMeta} />}
+        {author && <AvatarLink {...author} avatar={author.avatarThumb} />}
 
         <hr className="post-divider" />
         <Typography
@@ -37,8 +36,8 @@ const Post = function (properties) {
           {text}
         </Typography>
         <div className="post-hashtags">
-          {hashtags.map(({ id, name }) => (
-            <Hashtag name={name} key={id} />
+          {challenges.map(({ id, title }) => (
+            <Hashtag name={title} key={id} />
           ))}
         </div>
 
@@ -57,30 +56,33 @@ const Post = function (properties) {
 }
 
 Post.defaultProps = {
-  hashtags: [],
-  diggCount: 0,
-  commentCount: 0,
-  videoMeta: undefined,
-  videoUrl: '',
-  authorMeta: undefined,
+  challenges: [],
+  stats: {
+    diggCount: 0,
+    commentCount: 0,
+  },
+  video: undefined,
+  author: undefined,
   text: undefined,
 }
 
 Post.propTypes = {
-  videoMeta: propTypes.shape({
+  video: propTypes.shape({
     duration: propTypes.number,
     height: propTypes.number,
     width: propTypes.number,
+    playAddr: propTypes.string,
   }),
-  videoUrl: propTypes.string,
-  authorMeta: propTypes.objectOf(AvatarLink),
+  author: propTypes.objectOf(AvatarLink),
   text: propTypes.string,
-  diggCount: propTypes.number,
-  commentCount: propTypes.number,
-  hashtags: propTypes.arrayOf(
+  stats: propTypes.shape({
+    diggCount: propTypes.number,
+    commentCount: propTypes.number,
+  }),
+  challenges: propTypes.arrayOf(
     propTypes.shape({
       id: propTypes.string,
-      name: propTypes.string,
+      title: propTypes.string,
     }),
   ),
 }

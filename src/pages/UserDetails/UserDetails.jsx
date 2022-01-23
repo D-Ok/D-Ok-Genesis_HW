@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
 import userFeedMapper from '../../services/userFeedMapper'
-import userInfoMapper from '../../services/userInfoMapper'
 
 import UserProfile from '../../components/UserProfile/UserProfile'
 import VideoGrid from '../../components/VideoGrid/VideoGrid'
@@ -14,8 +13,16 @@ const UserDetails = function () {
 
   useEffect(() => {
     userFeedMapper(uniqueId, setVideos)
-    userInfoMapper(uniqueId, setUserInfo)
   }, [uniqueId])
+
+  useEffect(() => {
+    if (!videos || videos.length === 0) return
+
+    const user = videos[0].author
+    const stats = videos[0].authorStats
+
+    setUserInfo({ user, stats })
+  }, [videos])
 
   return (
     <div>

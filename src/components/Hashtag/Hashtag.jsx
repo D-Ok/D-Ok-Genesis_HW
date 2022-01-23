@@ -4,7 +4,7 @@ import { Link } from '@mui/material'
 
 const Hashtag = function ({ name, disabled }) {
   return (
-    <span>
+    <span className="hashtag">
       <Link component="button" href="#" disabled={disabled} underline="hover">
         #
         {name}

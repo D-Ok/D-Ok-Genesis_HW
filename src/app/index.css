@@ -6,6 +6,7 @@
 @import '../components/StatsInfo/StatsInfo.css';
 @import '../components/VideoGrid/VideoGrid.css';
 @import '../components/VideoElement/VideoElement.css';
+@import '../components/Hashtag/Hashtag.css';
 
 .App {
     text-align: center;
