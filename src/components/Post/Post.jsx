@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
 import Video from '../Video/Video'
 import Hashtag from '../Hashtag/Hashtag'
 import InfoIcon from '../InfoIcon/InfoIcon'
 import AvatarLink from '../AvatarLink/AvatarLink'
-import { UTILS } from './utils'
-
-const { calculatePostWidth, calculateHeight } = UTILS
+import getPostParameters from '../../helpers/getPostParameters'
 
 const Post = function (properties) {
   const {
@@ -19,19 +17,10 @@ const Post = function (properties) {
     commentCount,
     hashtags,
   } = properties
-  const [postHeight, setPostHeight] = useState(300)
-
-  useEffect(() => {
-    const height = calculateHeight()
-    setPostHeight(height)
-  }, [])
-
-  const postStyles = {
-    height: postHeight,
-    width: calculatePostWidth(postHeight),
-  }
 
   if (!videoMeta) return <></>
+
+  const postStyles = getPostParameters()
 
   return (
     <div className="post-container" style={postStyles}>

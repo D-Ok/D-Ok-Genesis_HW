@@ -1,4 +1,4 @@
-export const numberToText = (number) => {
+export default (number) => {
   if (!number) return
 
   switch (true) {

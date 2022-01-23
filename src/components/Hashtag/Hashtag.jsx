@@ -2,10 +2,10 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Link } from '@mui/material'
 
-const Hashtag = function ({ name }) {
+const Hashtag = function ({ name, disabled }) {
   return (
     <span>
-      <Link component="button" href="#" disabled underline="hover">
+      <Link component="button" href="#" disabled={disabled} underline="hover">
         #
         {name}
       </Link>
@@ -15,10 +15,12 @@ const Hashtag = function ({ name }) {
 
 Hashtag.defaultProps = {
   name: '',
+  disabled: true,
 }
 
 Hashtag.propTypes = {
   name: propTypes.string,
+  disabled: propTypes.bool,
 }
 
 export default Hashtag

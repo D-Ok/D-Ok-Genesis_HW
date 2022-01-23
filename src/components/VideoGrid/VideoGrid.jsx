@@ -1,8 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { Icon } from '@mui/material'
+
 import Video from '../Video/Video'
-import { numberToText } from '../InfoIcon/utils'
+import numberToText from '../../helpers/numberToText'
 
 const VideoGrid = function ({ videos }) {
   const videoContainer = ({ videoUrl, playCount }) => (

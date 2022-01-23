@@ -12,12 +12,12 @@ const AvatarLink = function ({
 }) {
   const navigate = useNavigate()
 
+  const avatarClickHandler = () => navigate(`/user/${name}`, { replace: true })
+
   const avatarLinkClasses = classnames(
     { [`${className}`]: true },
     'avatar-link-container',
   )
-
-  const avatarClickHandler = () => navigate(`/user/${name}`, { replace: true })
 
   return (
     <div
