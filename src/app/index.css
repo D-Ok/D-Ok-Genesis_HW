@@ -7,6 +7,7 @@
 @import '../components/VideoGrid/VideoGrid.css';
 @import '../components/VideoElement/VideoElement.css';
 @import '../components/Hashtag/Hashtag.css';
+@import '../components/VideoGlidElement/VideoGridElement.css';
 
 .App {
     text-align: center;
