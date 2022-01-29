@@ -9,6 +9,7 @@ const UserInfo = function ({
   nickname,
   avatarLarger,
   signature,
+  navigateToUser,
 }) {
   return (
     <>
@@ -17,6 +18,7 @@ const UserInfo = function ({
         name={uniqueId}
         nickName={nickname}
         avatar={avatarLarger}
+        onClickHandler={navigateToUser}
       />
       <Typography variant="body1" component="p">
         {signature}
@@ -32,6 +34,7 @@ UserInfo.defaultProps = {
   nickname: '',
   uniqueId: '',
   signature: '',
+  navigateToUser: () => 0,
 }
 
 UserInfo.propTypes = {
@@ -43,6 +46,7 @@ UserInfo.propTypes = {
   nickname: propTypes.string,
   uniqueId: propTypes.string,
   signature: propTypes.string,
+  navigateToUser: propTypes.func,
 }
 
 export default UserInfo
