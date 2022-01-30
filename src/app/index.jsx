@@ -21,10 +21,16 @@ const App = function () {
   }, [])
 
   const onNavigateToUserHandler = (name) => navigate(`/user/${name}`, { replace: true })
+  const navigateToMainPage = () => navigate('/', { replace: true })
+
   return (
     <MemoryRouter>
       <div className="App">
-        <MenuBar user={currentUserInfo} />
+        <MenuBar
+          user={currentUserInfo}
+          onTitleClick={navigateToMainPage}
+          onAvatarClick={onNavigateToUserHandler}
+        />
         <Routes>
           <Route path="/" element={<Trending onNavigateToUser={onNavigateToUserHandler} />} />
           <Route path="/user">

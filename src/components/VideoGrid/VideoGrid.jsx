@@ -20,8 +20,12 @@ VideoGrid.defaultProps = {
 VideoGrid.propTypes = {
   videos: propTypes.arrayOf(
     propTypes.shape({
-      videoUrl: propTypes.string,
-      playCount: propTypes.number,
+      video: propTypes.shape({
+        playAddr: propTypes.string,
+      }),
+      stats: propTypes.shape({
+        playCount: propTypes.number,
+      }),
     }),
   ),
 }

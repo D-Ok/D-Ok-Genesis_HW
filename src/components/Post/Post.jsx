@@ -17,7 +17,7 @@ const Post = function (properties) {
     onAvatarClick,
   } = properties
 
-  if (!video) return <></>
+  if (!video) return <></>;
 
   const { diggCount, commentCount } = stats
   const postStyles = getPostParameters()
