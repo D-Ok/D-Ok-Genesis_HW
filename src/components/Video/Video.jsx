@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import classnames from 'classnames'
 import { useInView } from 'react-intersection-observer'
 
-import VideoElement from './VideoElement'
+import VideoElement from '../VideoElement/VideoElement'
 
 const Video = function ({
   muted,

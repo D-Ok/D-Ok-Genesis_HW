@@ -1,36 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import propTypes from 'prop-types'
 
 import {
   AppBar, Avatar, IconButton, Toolbar, Typography,
 } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 
-import { GLOBAL_CONSTANTS } from '../../constants'
-import { options } from '../../requests'
-
-const userInfoUrl = GLOBAL_CONSTANTS.API.URLS.USER_INFO
-
-const MenuBar = function () {
+const MenuBar = function ({ user }) {
   const navigate = useNavigate()
-  const [userAvatar, setUserAvatar] = useState('')
-
-  const defaultUser = GLOBAL_CONSTANTS.USER_ID
-
-  useEffect(() => {
-    axios
-      .request(options(userInfoUrl + defaultUser))
-      .then(({ data }) => {
-        setUserAvatar(data.user.avatarThumb)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  }, [])
 
   const navigateToMainPage = () => navigate('/', { replace: true })
-  const navigateToUserPage = () => navigate(`/user/${defaultUser}`, { replace: true })
+  const navigateToUserPage = () => user && user.userName && navigate(`/user/${user.userName}`, { replace: true })
 
   return (
     <AppBar position="fixed">
@@ -51,8 +32,8 @@ const MenuBar = function () {
             onClick={navigateToUserPage}
             color="inherit"
           >
-            {userAvatar ? (
-              <Avatar alt={defaultUser} src={userAvatar} />
+            {user ? (
+              <Avatar alt={user.userName} src={user.avatar} />
             ) : (
               <AccountCircle />
             )}
@@ -61,6 +42,17 @@ const MenuBar = function () {
       </Toolbar>
     </AppBar>
   )
+}
+
+MenuBar.defaultProps = {
+  user: undefined,
+}
+
+MenuBar.propTypes = {
+  user: propTypes.shape({
+    userName: propTypes.string,
+    avatar: propTypes.string,
+  }),
 }
 
 export default MenuBar

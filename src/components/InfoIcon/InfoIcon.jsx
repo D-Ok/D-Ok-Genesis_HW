@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import classnames from 'classnames'
 import { Icon, IconButton } from '@mui/material'
 
-import { numberToText } from './utils'
+import numberToText from '../../helpers/numberToText'
 
 const InfoIcon = function ({
   disabled,
@@ -17,6 +17,7 @@ const InfoIcon = function ({
 }) {
   const sxObject = iconSize ? { fontSize: iconSize } : {}
   const textNumber = numberToText(number)
+
   return (
     <IconButton
       disableRipple={disabled}

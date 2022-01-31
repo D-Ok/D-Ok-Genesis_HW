@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useInView } from 'react-intersection-observer'
 import propTypes from 'prop-types'
 import classnames from 'classnames'
-import { useInView } from 'react-intersection-observer'
 
 import InfoIcon from '../InfoIcon/InfoIcon'
+import videoController from '../../helpers/videoController'
 
 const VideoElement = function ({
   videoUrl, isLoad, playOnView, muted,
@@ -22,14 +23,11 @@ const VideoElement = function ({
   useEffect(() => {
     if (!playOnView || !isPlay) return
 
-    if (inView) videoElement.current.play()
-    else videoElement.current.pause()
+    videoController(videoElement.current, !inView)
   }, [inView, playOnView, videoUrl, isPlay, entry])
 
   const onVideoClick = () => {
-    if (isPlay) videoElement.current.pause()
-    else videoElement.current.play()
-
+    videoController(videoElement.current, isPlay)
     setIsPlay(!isPlay)
   }
 
@@ -37,17 +35,17 @@ const VideoElement = function ({
     '--display': playOnView && !isPlay && isLoad,
   })
 
+  const videoSource = isLoad ? videoUrl : ''
+
   return (
     <div className="video-element-container" ref={ref}>
       <video
         muted={muted}
         loop
         onClick={onVideoClick}
-        src={isLoad ? videoUrl : ''}
+        src={videoSource}
         ref={videoElement}
-      >
-        {' '}
-      </video>
+      />
       <div className={buttonClasses} onClick={onVideoClick}>
         <InfoIcon
           color="default"
