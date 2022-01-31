@@ -2,17 +2,15 @@ import React from 'react'
 import propTypes from 'prop-types'
 import classnames from 'classnames'
 import { Avatar, Link } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 
 const AvatarLink = function ({
   uniqueId,
   nickname,
   avatar,
   className,
+  onClickHandler,
 }) {
-  const navigate = useNavigate()
-
-  const avatarClickHandler = () => navigate(`/user/${uniqueId}`, { replace: true })
+  const avatarClickHandler = () => onClickHandler(uniqueId)
 
   const avatarLinkClasses = classnames(
     { [`${className}`]: true },
@@ -40,6 +38,7 @@ AvatarLink.defaultProps = {
   uniqueId: '',
   nickname: '',
   avatar: '',
+  onClickHandler: () => 0,
 }
 
 AvatarLink.propTypes = {
@@ -47,6 +46,7 @@ AvatarLink.propTypes = {
   nickname: propTypes.string,
   avatar: propTypes.string,
   className: propTypes.string,
+  onClickHandler: propTypes.func,
 }
 
 export default AvatarLink

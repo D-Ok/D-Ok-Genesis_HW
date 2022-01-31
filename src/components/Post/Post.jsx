@@ -14,9 +14,10 @@ const Post = function (properties) {
     author,
     stats,
     challenges,
+    onAvatarClick,
   } = properties
 
-  if (!video) return <></>
+  if (!video) return <></>;
 
   const { diggCount, commentCount } = stats
   const postStyles = getPostParameters()
@@ -25,7 +26,13 @@ const Post = function (properties) {
     <div className="post-container" style={postStyles}>
       <Video {...video} videoUrl={video.playAddr} playOnView />
       <div className="post-info-container">
-        {author && <AvatarLink {...author} avatar={author.avatarThumb} />}
+        {author && (
+        <AvatarLink
+          {...author}
+          avatar={author.avatarThumb}
+          onClickHandler={onAvatarClick}
+        />
+        )}
 
         <hr className="post-divider" />
         <Typography
@@ -64,6 +71,7 @@ Post.defaultProps = {
   video: undefined,
   author: undefined,
   text: undefined,
+  onAvatarClick: () => 0,
 }
 
 Post.propTypes = {
@@ -85,6 +93,7 @@ Post.propTypes = {
       title: propTypes.string,
     }),
   ),
+  onAvatarClick: propTypes.func,
 }
 
 export default Post
