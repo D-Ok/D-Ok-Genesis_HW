@@ -1,12 +1,7 @@
-@import '../components/InfoIcon/InfoIcon.css';
-@import '../components/AvatarLink/AvaterLink.css';
-@import '../components/Video/Video.css';
 @import '../components/Post/Post.css';
 @import '../components/UserInfo/UserInfo.css';
 @import '../components/StatsInfo/StatsInfo.css';
 @import '../components/VideoGrid/VideoGrid.css';
-@import '../components/VideoElement/VideoElement.css';
-@import '../components/Hashtag/Hashtag.css';
 @import '../components/VideoGlidElement/VideoGridElement.css';
 
 .App {

@@ -11,9 +11,11 @@ export default async ({
 }) => {
   try {
     const result = await request(parameters)
+    // eslint-disable-next-line no-unused-vars
     const { data } = result
 
-    const resultValue = typeof data === 'string' ? defaultReturn : data
+    // const resultValue = typeof data === 'string' ? defaultReturn : data
+    const resultValue = defaultReturn
     return callbackAndReturn(resultValue, callback)
   } catch (error) {
     console.error(error)

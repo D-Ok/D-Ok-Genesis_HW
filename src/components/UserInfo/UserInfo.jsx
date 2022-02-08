@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Typography } from '@mui/material'
 import propTypes from 'prop-types'
-import AvatarLink from '../AvatarLink/AvatarLink'
+import { AvatarLink } from '@D-Ok/component-lib'
 
 const UserInfo = function ({
   bioLink,

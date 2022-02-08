@@ -1,7 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-
-import InfoIcon from '../InfoIcon/InfoIcon'
+import { InfoIcon } from '@D-Ok/component-lib'
 
 const StatsInfo = function ({
   followingCount,
