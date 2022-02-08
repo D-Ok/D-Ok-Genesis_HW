@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import propTypes from 'prop-types'
 import userFeedMapper from '../../services/userFeedMapper'
 
 import UserProfile from '../../components/UserProfile/UserProfile'
 import VideoGrid from '../../components/VideoGrid/VideoGrid'
+import MenuBar from '../../components/MenuBar/MenuBar'
 
-const UserDetails = function () {
+const UserDetails = function ({ currentUserInfo }) {
   const { uniqueId } = useParams()
   const [userInfo, setUserInfo] = useState()
   const [videos, setVideos] = useState([])
@@ -26,10 +28,22 @@ const UserDetails = function () {
 
   return (
     <div>
+      <MenuBar user={currentUserInfo} />
       <UserProfile {...userInfo} />
       <VideoGrid videos={videos} />
     </div>
   )
+}
+
+UserDetails.defaultProps = {
+  currentUserInfo: undefined,
+}
+
+UserDetails.propTypes = {
+  currentUserInfo: propTypes.shape({
+    userName: propTypes.string,
+    avatar: propTypes.string,
+  }),
 }
 
 export default UserDetails

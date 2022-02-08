@@ -1,6 +1,6 @@
 # TikTuk
 
-To start follow the [link](https://d-ok.github.io/TikTuk/).
+To start follow the [link](https://d-ok.github.io/D-Ok-Genesis_HW/).
 
 ## Load source code on your computer
 

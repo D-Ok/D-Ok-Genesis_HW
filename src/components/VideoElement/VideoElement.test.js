@@ -2,12 +2,9 @@ import { shallow, mount } from 'enzyme'
 import VideoElement from './VideoElement'
 import React from 'react'
 
-import {mockAllIsIntersecting} from 'react-intersection-observer/test-utils'
+jest.mock('../../helpers/videoController');
+import videoController from '../../helpers/videoController';
 
-// jest.mock('react', () => ({
-//     ...jest.requireActual('react'),
-//     useState: jest.fn(),
-// }))
 
 describe('VideoElement', () => {
     let parameters = {}
@@ -39,28 +36,16 @@ describe('VideoElement', () => {
         expect(videoEl).toHaveLength(1);
     })
 
-//     it('Should change state onClick', () => {
-//         const playMock = jest
-//             .spyOn(window.HTMLMediaElement.prototype, 'play')
-//             .mockImplementation(() => {})
-//      //   const wrapper = mount(<ComponentWithVideoTag />);
-// // trigger the code that you would expect to call the pause function
-//
-//
-//         const setIsPlay = jest.fn();
-//        // const useRefSpy = jest.spyOn(React, 'useRef').mockReturnValueOnce({ current: document.createElement('video') });
-//
-//         const handleClick = jest.spyOn(React, "useState");
-//         handleClick.mockImplementation(isPlay => [isPlay, setIsPlay]);
-//
-//         wrapper = mount(<VideoElement {...parameters} />)
-//         const videoEl = wrapper.find('video');
-//
-//         videoEl.simulate('click');
-//
-//         expect(playMock).toBeCalled();
-//
-//         playMock.mockRestore()
-//     })
+    it('Should change state onClick', () => {
+        const play = jest.fn();
+        videoController.mockImplementation(play);
+
+        wrapper = shallow(<VideoElement {...parameters} />)
+        const videoEl = wrapper.find('video');
+
+        videoEl.simulate('click');
+
+        expect(play).toBeCalled();
+    })
 
 })

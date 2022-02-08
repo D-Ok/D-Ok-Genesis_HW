@@ -5,10 +5,13 @@ import {
   AppBar, Avatar, IconButton, Toolbar, Typography,
 } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle'
+import { useNavigate } from 'react-router-dom'
 
-const MenuBar = function ({ user, onTitleClick, onAvatarClick }) {
-  const navigateToMainPage = () => onTitleClick()
-  const navigateToUserPage = () => user && user.userName && onAvatarClick(user.userName)
+const MenuBar = function ({ user }) {
+  const navigate = useNavigate()
+
+  const navigateToUserPage = () => user && user.userName && navigate(`/user/${user.userName}`, { replace: true })
+  const navigateToMainPage = () => navigate('/', { replace: true })
 
   return (
     <AppBar position="fixed">
@@ -43,8 +46,8 @@ const MenuBar = function ({ user, onTitleClick, onAvatarClick }) {
 
 MenuBar.defaultProps = {
   user: undefined,
-  onAvatarClick: () => 0,
-  onTitleClick: () => 0,
+  // onAvatarClick: () => 0,
+  // onTitleClick: () => 0,
 }
 
 MenuBar.propTypes = {
@@ -52,8 +55,8 @@ MenuBar.propTypes = {
     userName: propTypes.string,
     avatar: propTypes.string,
   }),
-  onAvatarClick: propTypes.func,
-  onTitleClick: propTypes.func,
+  // onAvatarClick: propTypes.func,
+  // onTitleClick: propTypes.func,
 }
 
 export default MenuBar
