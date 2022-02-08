@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Icon } from '@mui/material'
 
-import Video from '../Video/Video'
+import { Video } from '@D-Ok/component-lib'
 import numberToText from '../../helpers/numberToText'
 
 const VideoGridElement = function ({ playCount, videoUrl }) {

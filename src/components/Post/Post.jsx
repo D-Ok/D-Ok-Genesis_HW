@@ -1,10 +1,9 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import Typography from '@mui/material/Typography'
-import Video from '../Video/Video'
-import Hashtag from '../Hashtag/Hashtag'
-import InfoIcon from '../InfoIcon/InfoIcon'
-import AvatarLink from '../AvatarLink/AvatarLink'
+import {
+  AvatarLink, Hashtag, InfoIcon, Video,
+} from '@D-Ok/component-lib'
 import getPostParameters from '../../helpers/getPostParameters'
 
 const Post = function (properties) {
@@ -17,7 +16,7 @@ const Post = function (properties) {
     onAvatarClick,
   } = properties
 
-  if (!video) return <></>;
+  if (!video) return <></>
 
   const { diggCount, commentCount } = stats
   const postStyles = getPostParameters()

@@ -4,7 +4,7 @@ public/
 node_modules/
 
 
-
+craco.config.js
 .eslintrc.json
 README.md
 package-lock.json
