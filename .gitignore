@@ -1,6 +1,7 @@
 
 .idea/
 build/
+cordova/
 
 ### Node ###
 # Logs

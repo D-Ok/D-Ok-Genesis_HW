@@ -1,0 +1,10 @@
+@import '../components/Post/Post.css';
+@import '../components/UserInfo/UserInfo.css';
+@import '../components/StatsInfo/StatsInfo.css';
+@import '../components/VideoGrid/VideoGrid.css';
+@import '../components/VideoGlidElement/VideoGridElement.css';
+
+.App {
+    text-align: center;
+    margin-top: 64px;
+}

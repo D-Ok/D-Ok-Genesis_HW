@@ -1,18 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import { Provider } from 'react-redux'
-import store from './store/store'
-
 import './index.css'
 import App from './app'
 
 const startApp = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <App />
     </React.StrictMode>,
     document.querySelector('#root'),
   )
@@ -20,8 +14,10 @@ const startApp = () => {
 
 window.cordova = window.cordova || false
 
-if (!window.cordova) {
-  startApp()
+if (window.cordova) {
+  document.addEventListener('deviceready', () => {
+    startApp();
+  }, false);
 } else {
-  document.addEventListener('deviceready', startApp, false)
+  startApp();
 }
