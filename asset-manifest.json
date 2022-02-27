@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/D-Ok-Genesis_HW/static/css/main.01b6de95.chunk.css",
-    "main.js": "/D-Ok-Genesis_HW/static/js/main.dce163d1.chunk.js",
-    "main.css.map": "/D-Ok-Genesis_HW/static/css/main.01b6de95.chunk.css.map",
-    "main.js.map": "/D-Ok-Genesis_HW/static/js/main.dce163d1.chunk.js.map",
-    "runtime-main.js": "/D-Ok-Genesis_HW/static/js/runtime-main.d5e847a7.js",
-    "runtime-main.js.map": "/D-Ok-Genesis_HW/static/js/runtime-main.d5e847a7.js.map",
-    "static/js/2.97de6724.chunk.js": "/D-Ok-Genesis_HW/static/js/2.97de6724.chunk.js",
-    "static/js/2.97de6724.chunk.js.map": "/D-Ok-Genesis_HW/static/js/2.97de6724.chunk.js.map",
-    "index.html": "/D-Ok-Genesis_HW/index.html"
+    "main.css": "./static/css/main.95dbf27c.chunk.css",
+    "main.js": "./static/js/main.588da253.chunk.js",
+    "main.css.map": "./static/css/main.95dbf27c.chunk.css.map",
+    "main.js.map": "./static/js/main.588da253.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.4e3b12ca.js",
+    "runtime-main.js.map": "./static/js/runtime-main.4e3b12ca.js.map",
+    "static/js/2.9f63f16b.chunk.js": "./static/js/2.9f63f16b.chunk.js",
+    "static/js/2.9f63f16b.chunk.js.map": "./static/js/2.9f63f16b.chunk.js.map",
+    "index.html": "./index.html"
   },
   "entrypoints": [
-    "static/js/runtime-main.d5e847a7.js",
-    "static/js/2.97de6724.chunk.js",
-    "static/css/main.01b6de95.chunk.css",
-    "static/js/main.dce163d1.chunk.js"
+    "static/js/runtime-main.4e3b12ca.js",
+    "static/js/2.9f63f16b.chunk.js",
+    "static/css/main.95dbf27c.chunk.css",
+    "static/js/main.588da253.chunk.js"
   ]
 }
